@@ -54,8 +54,6 @@ for _ in range(e):
     n1, n2, cost = map(int, sys.stdin.readline().split())
     edges.append(Edge(n1, n2, cost))
 
-edges.sort()
-
 # parent : index의 부모노드를 저장하는 리스트
 # 처음에 각 노드 자기 자신을 root로 초기화
 parent = [i for i in range(v+1)]
@@ -65,7 +63,9 @@ parent = [i for i in range(v+1)]
 # 자신이 root인 각 노드의 길이는 0
 rank = [0] * (v+1)
 
-# 입력된 모든 간선을 가중치가 감소하지 않는 순서(오름차순)로 순회한다.
+# 입력받은 간선을 가중치의 가중치가 감소하지 않는 순서(오름차순)으로 순회하기 위해 정렬한다
+edges.sort()
+
 total = 0   # 최소 비용을 저장할 변수
 for edge in edges:
     # 두 정점의 root가 같지 않을 경우에만 union()을 진행하며 cost를 계산해준다.
