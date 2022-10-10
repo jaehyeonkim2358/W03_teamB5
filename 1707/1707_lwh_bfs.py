@@ -28,7 +28,7 @@ def init():
         graph[v].append(u)
     
     for node in graph.keys():
-        if group[node]: # 아지 안간 그룹인지 확인
+        if group[node]: # 아지 안 간 그룹인지 확인
             continue 
         if not bfs(graph, node, group):
             print('NO')
